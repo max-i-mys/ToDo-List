@@ -19,6 +19,10 @@
 	opacity: 0.4;
 	background-color: #00000012;
 }
+.todo__task.finished .todo__title,
+.todo__task.finished .todo__body {
+	text-decoration: line-through;
+}
 .todo__task:nth-last-of-type(n+2) {
 	margin-right: 12px;
 }

@@ -20,6 +20,8 @@ export default function TodosProvider({ children }) {
               return action.payload
             case 'ADD':
                 return [...state, action.payload]
+						case 'UPDATE':
+								return [...state]
             default:
                 throw new Error(`Wrong action type: ${action.type}`)
         }
