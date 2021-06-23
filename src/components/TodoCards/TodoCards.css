@@ -4,11 +4,20 @@
 }
 .todo__task {
 	width: 250px;
-	background: #00000012;
 	border-radius: 5px;
 	box-shadow: 0px 0px 3px 0px black;
 	margin-bottom: 12px;
 	cursor: pointer;
+}
+.todo__task.new {
+	background-color: #00000012;
+}
+.todo__task.process {
+	background-color: #04fd0412;
+}
+.todo__task.finished {
+	opacity: 0.4;
+	background-color: #00000012;
 }
 .todo__task:nth-last-of-type(n+2) {
 	margin-right: 12px;
