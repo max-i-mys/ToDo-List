@@ -1,0 +1,22 @@
+.todo__add {
+	display: flex;
+	flex-direction: column;
+	max-width: 400px;
+	margin: 0 auto;
+	align-items: center;
+}
+.todo__add > :nth-child(n+2) {
+	margin-top: 10px;
+}
+.todo__btn {
+	padding: 10px 50px;
+}
+.todo__add-title, .todo__add-body {
+	width: 100%;
+}
+.todo__add-title {
+	height: 20px;
+}
+.todo__add-body {
+	min-height: 100px;
+}

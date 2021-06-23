@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { fetchAdd } from './../../api/crud';
-import { BASE_URL } from './../../api/constants';
+import { BASE_URL, formatterDate } from './../../api/constants';
 import { useTodos } from './../../hooks/useTodos';
+import "./AddTodo.css"
 
 export default function AddTodo() {
 	const [todoTitle, setTodoTitle] = useState("")
@@ -14,7 +15,7 @@ export default function AddTodo() {
 				const newTodo = {
 						title: todoTitle,
 						body: todoBody,
-						createdAt: now,
+						createdAt: formatterDate.format(now),
 						status: 'new'
 				}
 				const savedTodo = await fetchAdd(BASE_URL, 'todos', newTodo)
@@ -22,10 +23,10 @@ export default function AddTodo() {
 				event.target.reset()
     }
     return (
-        <form onSubmit={addTodo}>
-            <input type="text" onChange={(event) => setTodoTitle(()=>event.target.value)} name="title" required />
-            <textarea name="body" onChange={(event)=>setBody(()=>event.target.value)} required></textarea>
-            <button type="submit">Add</button>
+        <form onSubmit={addTodo} className="todo__add">
+            <input className="todo__add-title" type="text" onChange={(event) => setTodoTitle(()=>event.target.value)} name="title" required />
+            <textarea className="todo__add-body" name="body" onChange={(event)=>setBody(()=>event.target.value)} required minLength="10"></textarea>
+            <button type="submit" className="todo__btn">Add</button>
         </form>
     )
 }
