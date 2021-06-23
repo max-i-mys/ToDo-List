@@ -10,20 +10,20 @@
 	cursor: pointer;
 }
 .todo__task.new {
-	background-color: #00000012;
+	background-color: #0083ff2e;
 }
 .todo__task.process {
-	background-color: #04fd0412;
+	background-color: #04fd042e;
 }
 .todo__task.finished {
 	opacity: 0.4;
-	background-color: #00000012;
+	background-color: #0000002e;
 }
 .todo__task.finished .todo__title,
 .todo__task.finished .todo__body {
 	text-decoration: line-through;
 }
-.todo__task:nth-last-of-type(n+2) {
+.todo__task:nth-last-of-type(n + 2) {
 	margin-right: 12px;
 }
 .todo__title {
