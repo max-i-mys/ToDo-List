@@ -17,7 +17,7 @@ export default function TodosProvider({ children }) {
     function reducer(state, action) {
         switch (action.type) {
             case 'INITIAL':
-               return action.payload
+              return action.payload
             case 'ADD':
                 return [...state, action.payload]
             default:
