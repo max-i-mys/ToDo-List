@@ -1,0 +1,11 @@
+.todo__close-btn {
+	top: 5px;
+	position: absolute;
+	right: 5px;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+.todo__close-btn:hover {
+	color: #fff;
+	background-color: rgba(255, 0, 0, 0.897);
+}
