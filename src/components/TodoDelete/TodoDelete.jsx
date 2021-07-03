@@ -2,6 +2,8 @@ import "./TodoDelete.css"
 import { useTodos } from "../../hooks/useTodos"
 import { useState } from "react"
 import { deleteTodo } from "../../api/crud"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
 
 export default function TodoDelete(props) {
 	const [, dispatch] = useTodos()
@@ -17,7 +19,7 @@ export default function TodoDelete(props) {
 	return (
 		<>
 			<button onClick={todoDel} className="todo__close-btn" disabled={disable}>
-				Del
+				<FontAwesomeIcon icon={faTrashAlt} />
 			</button>
 		</>
 	)

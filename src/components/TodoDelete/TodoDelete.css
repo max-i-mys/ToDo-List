@@ -1,11 +1,45 @@
 .todo__close-btn {
-	top: 5px;
+	top: 7px;
 	position: absolute;
-	right: 5px;
-	border-radius: 4px;
+	right: 2px;
+	border: none;
+	background: transparent;
+}
+.todo__close-btn svg {
+	font-size: 1.2rem;
+	color: #00000070;
 	transition: 0.3s;
 }
-.todo__close-btn:hover {
-	color: #fff;
-	background-color: rgba(255, 0, 0, 0.897);
+@keyframes tada {
+	0% {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+	10%,
+	20% {
+		-webkit-transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+		transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+	}
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+	}
+	40%,
+	60%,
+	80% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+}
+.todo__close-btn:hover svg,
+.todo__close-btn:focus svg {
+	color: rgb(240, 30, 30);
+	animation: tada 1s;
 }
