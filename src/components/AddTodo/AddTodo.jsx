@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { fetchAdd } from "./../../api/crud"
-import { BASE_URL } from "./../../api/constants"
+import { addTodo } from "../../api/crud"
 import { useTodos } from "./../../hooks/useTodos"
 import "./AddTodo.css"
 
@@ -9,7 +8,7 @@ export default function AddTodo() {
 	const [todoBody, setBody] = useState()
 
 	const [, dispatchTodos] = useTodos()
-	async function addTodo(event) {
+	async function addNewTodo(event) {
 		event.preventDefault()
 		const newTodo = {
 			title: todoTitle,
@@ -19,12 +18,12 @@ export default function AddTodo() {
 			finishedAt: false,
 			status: "new",
 		}
-		const savedTodo = await fetchAdd(BASE_URL, "todos", newTodo)
+		const [savedTodo] = await addTodo(newTodo)
 		dispatchTodos({ type: "ADD", payload: savedTodo })
-		event.target.reset()
+		// event.target.reset()
 	}
 	return (
-		<form onSubmit={addTodo} className="todo__add">
+		<form onSubmit={addNewTodo} className="todo__add">
 			<input
 				className="todo__add-title"
 				type="text"

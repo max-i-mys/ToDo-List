@@ -2,16 +2,17 @@
 	display: flex;
 	flex-direction: column;
 	max-width: 400px;
-	margin: 0 auto;
 	align-items: center;
+	margin: 30px auto;
 }
-.todo__add > :nth-child(n+2) {
+.todo__add > :nth-child(n + 2) {
 	margin-top: 10px;
 }
 .todo__btn {
 	padding: 10px 50px;
 }
-.todo__add-title, .todo__add-body {
+.todo__add-title,
+.todo__add-body {
 	width: 100%;
 }
 .todo__add-title {

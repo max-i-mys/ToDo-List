@@ -1,18 +1,21 @@
 import { useTodos } from "../../hooks/useTodos"
 import "./TodoCards.css"
 import React from "react"
-import Card from "../Card/Card"
+import TodoCard from "../TodoCard/TodoCard"
 
-export default function TodoCards() {
+export default function TodoCards({ status }) {
 	const [todos] = useTodos()
 
 	return (
 		<>
 			{todos && (
 				<div className="todo__box">
-					{todos.map(todo => (
-						<Card key={todo.id} todo={todo} />
-					))}
+					{todos
+						.filter(todo => todo.status === status)
+						.sort((a, b) => b.createdAt - a.createdAt)
+						.map(todo => (
+							<TodoCard key={todo.id} todo={todo} />
+						))}
 				</div>
 			)}
 		</>

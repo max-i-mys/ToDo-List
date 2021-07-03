@@ -1,15 +1,15 @@
-import { BASE_URL } from "../../api/constants"
-import { fetchMerge } from "../../api/crud"
+import { updateTodo } from "../../api/crud"
 import { useTodos } from "../../hooks/useTodos"
-import { formatterDate, getNewStatus } from "../../utils/functions"
+import { formatterDate } from "../../utils/constants"
+import { getNewStatus } from "../../utils/functions"
 import TodoDelete from "../TodoDelete/TodoDelete"
 
-export default function Card({ todo }) {
+export default function TodoCard({ todo }) {
 	const [, dispach] = useTodos()
 	async function changeStatus() {
 		const newStatus = getNewStatus(todo.status)
 		if (newStatus !== todo.status) {
-			const todoWithNewStatus = await fetchMerge(BASE_URL, "todos", todo.id, {
+			const [todoWithNewStatus] = await updateTodo(todo.id, {
 				status: newStatus,
 				processAt: newStatus === "process" ? Date.now() : todo.processAt,
 				finishedAt: newStatus === "finished" ? Date.now() : todo.finishedAt,
@@ -31,7 +31,6 @@ export default function Card({ todo }) {
 						{todo.processAt && (
 							<p>Process: {formatterDate.format(todo.processAt)}</p>
 						)}
-
 						{todo.finishedAt && (
 							<p>Finished: {formatterDate.format(todo.finishedAt)}</p>
 						)}

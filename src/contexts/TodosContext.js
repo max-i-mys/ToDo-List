@@ -1,6 +1,5 @@
 import { createContext, useReducer, useEffect } from "react"
-import { fetchList } from "../api/crud"
-import { BASE_URL } from "./../api/constants"
+import { getTodos } from "../api/crud"
 
 const initialState = []
 export const TodosContext = createContext()
@@ -8,7 +7,7 @@ export default function TodosProvider({ children }) {
 	const [todos, dispatchTodos] = useReducer(reducer, initialState)
 	useEffect(() => {
 		;(async function () {
-			const todos = await fetchList(BASE_URL, "todos")
+			const [todos] = await getTodos()
 			dispatchTodos({ type: "INITIAL", payload: todos })
 		})()
 	}, [])
@@ -26,14 +25,14 @@ export default function TodosProvider({ children }) {
 				return newState
 			}
 			case "DELETE": {
-				const newState = JSON.parse(JSON.stringify([...state]))
-				const idX = newState.findIndex(todo => todo.id === action.payload)
-				if (idX !== -1) {
-					newState.splice(idX, 1)
-				} else {
-					throw new Error(`In ${action.type} wrong todo.id`)
-				}
-				return newState
+				// const newState = JSON.parse(JSON.stringify([...state]))
+				// const idX = newState.findIndex(todo => todo.id === action.payload)
+				// if (idX !== -1) {
+				// 	newState.splice(idX, 1)
+				// } else {
+				// 	throw new Error(`In ${action.type} wrong todo.id`)
+				// }
+				// return newState
 			}
 			default:
 				throw new Error(`Wrong action type: ${action.type}`)
