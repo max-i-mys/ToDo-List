@@ -28,6 +28,9 @@ export async function updateTodo(id, data) {
 	return await crud.patch(`/todos/${id}`, data)
 }
 
+export async function deleteTodo(id) {
+	return await crud.delete(`/todos/${id}`)
+}
 // async function fetchData(url, opts) {
 // 	try {
 // 		const res = await fetch(url, opts)

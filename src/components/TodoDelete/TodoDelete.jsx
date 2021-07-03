@@ -1,18 +1,18 @@
 import "./TodoDelete.css"
-// import { fetchRemove } from "../../api/crud"
-// import { BASE_URL } from "../../api/constants"
 import { useTodos } from "../../hooks/useTodos"
 import { useState } from "react"
+import { deleteTodo } from "../../api/crud"
 
 export default function TodoDelete(props) {
 	const [, dispatch] = useTodos()
 	const [disable, setDisable] = useState(false)
 	async function todoDel() {
 		setDisable(true)
-		// const todoRemote = await fetchRemove(BASE_URL, "todos", props.id)
-		// if (todoRemote) {
-		// 	dispatch({ type: "DELETE", payload: props.id })
-		// }
+		const [todoDeleted] = await deleteTodo(props.id)
+		console.log(todoDeleted)
+		if (todoDeleted) {
+			dispatch({ type: "DELETE", payload: props.id })
+		}
 	}
 	return (
 		<>
