@@ -11,8 +11,7 @@ export default function TodoCard({ todo }) {
 		if (newStatus !== todo.status) {
 			const [todoWithNewStatus] = await updateTodo(todo.id, {
 				status: newStatus,
-				processAt: newStatus === "process" ? Date.now() : todo.processAt,
-				finishedAt: newStatus === "finished" ? Date.now() : todo.finishedAt,
+				updateAt: Date.now(),
 			})
 			dispach({ type: "UPDATE", payload: todoWithNewStatus })
 		}
@@ -28,11 +27,8 @@ export default function TodoCard({ todo }) {
 					<span>{todo.status}</span>
 					<div className="todo__time">
 						<p>Create: {formatterDate.format(todo.createdAt)}</p>
-						{todo.processAt && (
-							<p>Process: {formatterDate.format(todo.processAt)}</p>
-						)}
-						{todo.finishedAt && (
-							<p>Finished: {formatterDate.format(todo.finishedAt)}</p>
+						{todo.updateAt && (
+							<p>Update: {formatterDate.format(todo.updateAt)}</p>
 						)}
 					</div>
 				</div>

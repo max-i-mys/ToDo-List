@@ -14,13 +14,12 @@ export default function AddTodo() {
 			title: todoTitle,
 			body: todoBody,
 			createdAt: Date.now(),
-			processAt: false,
-			finishedAt: false,
+			updateAt: null,
 			status: "new",
 		}
 		const [savedTodo] = await addTodo(newTodo)
 		dispatchTodos({ type: "ADD", payload: savedTodo })
-		// event.target.reset()
+		event.target.reset()
 	}
 	return (
 		<form onSubmit={addNewTodo} className="todo__add">
