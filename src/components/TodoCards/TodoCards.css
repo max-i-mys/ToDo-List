@@ -23,7 +23,7 @@
 	background-color: #04fd042e;
 }
 .todo__task.finished {
-	opacity: 0.4;
+	opacity: 0.7;
 	background-color: #0000002e;
 }
 .todo__task.finished .todo__title,
