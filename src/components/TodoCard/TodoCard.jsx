@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { updateTodo } from "../../api/crud"
 import { useTodos } from "../../hooks/useTodos"
 import { formatterDate } from "../../utils/constants"
@@ -32,6 +33,9 @@ export default function TodoCard({ todo }) {
 						)}
 					</div>
 				</div>
+				<Link to="/todo/:id" className="todo__go">
+					Go to the todo...
+				</Link>
 			</div>
 		</>
 	)

@@ -57,6 +57,7 @@
 	text-transform: uppercase;
 	align-items: center;
 	min-height: 40px;
+	border-bottom: 1px solid #00000012;
 }
 .todo__time {
 	font-size: 0.7rem;
@@ -67,4 +68,42 @@
 }
 .todo__time p:nth-of-type(n + 2) {
 	padding-top: 2px;
+}
+@keyframes shakeY {
+	from,
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(0, -5px, 0);
+		transform: translate3d(0, -5px, 0);
+	}
+
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(0, 5px, 0);
+		transform: translate3d(0, 5px, 0);
+	}
+}
+.todo__go {
+	padding: 10px 0;
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+	color: #677367;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.todo__go:hover,
+.todo__go:focus {
+	color: #3e403e;
+	animation: shakeY 1s;
 }
