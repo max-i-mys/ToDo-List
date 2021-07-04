@@ -1,22 +1,24 @@
+import { Link } from "react-router-dom"
+
 export default function NavMenu() {
 	return (
 		<>
 			<nav className="header__nav">
 				<ul className="header__lists">
 					<li>
-						<a href="#" className="header__link">
-							Link1
-						</a>
+						<Link to="/" className="header__link">
+							Home
+						</Link>
 					</li>
 					<li>
-						<a href="#" className="header__link">
-							Link2
-						</a>
+						<Link to="/todos" className="header__link">
+							All todos
+						</Link>
 					</li>
 					<li>
-						<a href="#" className="header__link">
-							Link3
-						</a>
+						<Link to="/add-todo" className="header__link">
+							Add todo
+						</Link>
 					</li>
 				</ul>
 			</nav>
