@@ -1,0 +1,26 @@
+/*------------- NavMenu --------------*/
+.header__nav {
+	padding: 10px 0;
+	background-color: rgb(238, 238, 238);
+	box-shadow: 3px -1px 5px 1px #484141;
+}
+.header__lists {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+}
+.header__link {
+	padding: 5px 2px;
+	border-bottom: 2px solid transparent;
+	display: inline-block;
+	color: rgb(255, 136, 0);
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.header__link:hover,
+.header__link:focus {
+	border-color: inherit;
+	transform: translate();
+}
