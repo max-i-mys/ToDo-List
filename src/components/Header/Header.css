@@ -3,6 +3,11 @@
 	padding: 10px 0;
 	background-color: rgb(238, 238, 238);
 	box-shadow: 3px -1px 5px 1px #484141;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 1;
 }
 .header__lists {
 	display: flex;

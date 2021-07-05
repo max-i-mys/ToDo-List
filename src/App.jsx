@@ -4,6 +4,7 @@ import "./App.css"
 import AddTodo from "./components/AddTodo/AddTodo"
 import Header from "./components/Header/Header"
 import TodoCards from "./components/TodoCards/TodoCards"
+import TodoPage from "./components/TodoPage/TodoPage"
 function App() {
 	return (
 		<div className="App">
@@ -21,6 +22,12 @@ function App() {
 						<TodoCards status="process" />
 						<TodoCards status="finished" />
 					</div>
+				</Route>
+				<Route exact path="/todo/:id">
+					<TodoPage />
+				</Route>
+				<Route path="/*">
+					<h1>404! Sorry, path is not found</h1>
 				</Route>
 			</Switch>
 		</div>

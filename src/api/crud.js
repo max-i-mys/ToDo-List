@@ -20,6 +20,10 @@ export async function getTodos() {
 	return await crud.get("/todos")
 }
 
+export async function getTodo(id) {
+	return await crud.get(`/todos/${id}`)
+}
+
 export async function addTodo(data) {
 	return await crud.post("/todos", data)
 }

@@ -33,7 +33,7 @@ export default function TodoCard({ todo }) {
 						)}
 					</div>
 				</div>
-				<Link to="/todo/:id" className="todo__go">
+				<Link to={`/todo/${todo.id}`} className="todo__go">
 					Go to the todo...
 				</Link>
 			</div>
