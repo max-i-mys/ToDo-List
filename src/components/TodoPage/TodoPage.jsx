@@ -3,6 +3,7 @@ import { getTodo } from "../../api/crud"
 import { formatterDate } from "../../utils/constants"
 import React, { useState, useEffect } from "react"
 import TodoCard from "../TodoCard/TodoCard"
+import "./TodoPage.css"
 
 export default function TodoPage() {
 	const { id } = useParams()
@@ -17,5 +18,20 @@ export default function TodoPage() {
 		})()
 	}, [id])
 
-	return <>{todo && <TodoCard todo={todo}></TodoCard>}</>
+	return (
+		<>
+			{todo && (
+				<div className="page__box">
+					<h1>{todo.title}</h1>
+					<p className="page__body">{todo.body}</p>
+					<div className="page__box-time">
+						<p>Create: {formatterDate.format(todo.createdAt)}</p>
+						{todo.updateAt && (
+							<p>Update: {formatterDate.format(todo.updateAt)}</p>
+						)}
+					</div>
+				</div>
+			)}
+		</>
+	)
 }
