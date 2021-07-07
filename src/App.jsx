@@ -23,7 +23,7 @@ function App() {
 						<TodoCards status="finished" />
 					</div>
 				</Route>
-				<Route exact path="/todo/:id">
+				<Route exact path="/todos/:id">
 					<TodoPage />
 				</Route>
 				<Route path="/*">

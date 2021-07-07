@@ -25,7 +25,7 @@
 	transition: 0.3s;
 }
 .header__link:hover,
-.header__link:focus {
+.header__link:focus,
+.header__link.active {
 	border-color: inherit;
-	transform: translate();
 }

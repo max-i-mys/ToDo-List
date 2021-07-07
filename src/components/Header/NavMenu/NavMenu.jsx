@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export default function NavMenu() {
 	return (
@@ -6,19 +6,19 @@ export default function NavMenu() {
 			<nav className="header__nav">
 				<ul className="header__lists">
 					<li>
-						<Link to="/" className="header__link">
+						<NavLink exact to="/" className="header__link" activeClassName="active">
 							Home
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to="/todos" className="header__link">
+						<NavLink to="/todos" className="header__link" activeClassName="active">
 							All todos
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to="/add-todo" className="header__link">
+						<NavLink to="/add-todo" className="header__link" activeClassName="active">
 							Add todo
-						</Link>
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

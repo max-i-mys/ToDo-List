@@ -6,9 +6,11 @@ export const TodosContext = createContext()
 export default function TodosProvider({ children }) {
 	const [todos, dispatchTodos] = useReducer(reducer, initialState)
 	useEffect(() => {
-		;(async function () {
-			const [todos] = await getTodos()
-			dispatchTodos({ type: "INITIAL", payload: todos })
+		; (async function () {
+			const [todos, todosError] = await getTodos()
+			if (!todosError) {
+				dispatchTodos({ type: "INITIAL", payload: todos })
+			}
 		})()
 	}, [])
 
@@ -19,20 +21,24 @@ export default function TodosProvider({ children }) {
 			case "ADD":
 				return [...state, action.payload]
 			case "UPDATE": {
-				const newState = JSON.parse(JSON.stringify([...state]))
-				const idX = newState.findIndex(todo => todo.id === action.payload.id)
-				newState.splice(idX, 1, action.payload)
-				return newState
+				const todoIdx = state.findIndex(todo => todo.id === action.payload.id)
+				const newState = [...state]
+				if (todoIdx !== -1) {
+					newState.splice(todoIdx, 1, action.payload)
+					return newState
+				} else{
+					throw new Error('Todo index is not found!')
+				}
 			}
 			case "DELETE": {
-				const newState = JSON.parse(JSON.stringify([...state]))
-				const idX = newState.findIndex(todo => todo.id === action.payload)
-				if (idX !== -1) {
-					newState.splice(idX, 1)
-				} else {
-					throw new Error(`In ${action.type} wrong todo.id`)
+				const todoIdx = state.findIndex(todo => todo.id === action.payload)
+				const newState = [...state]
+				if (todoIdx !== -1) {
+					newState.splice(todoIdx, 1)
+					return newState
+				} else{
+					throw new Error('Todo index is not found!')
 				}
-				return newState
 			}
 			default:
 				throw new Error(`Wrong action type: ${action.type}`)
